@@ -37,15 +37,15 @@ LangChain is important because modern AI applications require more than a single
 
 LLMs act as the core processing unit of LangChain. They generate responses based on input prompts.
 
-```python
+```
 from langchain.llms import OpenAI
 
 llm = OpenAI(api_key="your_api_key")
-print(llm.invoke("What is Artificial Intelligence?"))
+print(llm.invoke("What is Artificial Intelligence?"))```
 🔹 2. Prompt Templates
 
 Prompt templates allow dynamic and reusable prompts instead of hardcoding inputs.
-
+```
 from langchain.prompts import PromptTemplate
 
 template = PromptTemplate(
@@ -54,7 +54,7 @@ template = PromptTemplate(
 )
 
 print(template.format(topic="Machine Learning"))
-
+```
 These templates improve flexibility and make prompt systems reusable.
 
 🔹 3. Chains
