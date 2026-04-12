@@ -41,10 +41,14 @@ LLMs act as the core processing unit of LangChain. They generate responses based
 from langchain.llms import OpenAI
 
 llm = OpenAI(api_key="your_api_key")
-print(llm.invoke("What is Artificial Intelligence?"))```
+print(llm.invoke("What is Artificial Intelligence?"))
+
+```
+
 🔹 2. Prompt Templates
 
 Prompt templates allow dynamic and reusable prompts instead of hardcoding inputs.
+
 ```
 from langchain.prompts import PromptTemplate
 
@@ -54,6 +58,7 @@ template = PromptTemplate(
 )
 
 print(template.format(topic="Machine Learning"))
+
 ```
 These templates improve flexibility and make prompt systems reusable.
 
@@ -61,29 +66,34 @@ These templates improve flexibility and make prompt systems reusable.
 
 Chains connect multiple components together and automate workflows.
 
+```
 from langchain.chains import LLMChain
 
 chain = LLMChain(llm=llm, prompt=template)
 print(chain.run("Deep Learning"))
 
+```
 Chains are essential because they allow multi-step processing instead of single LLM calls. They are widely used in summarization, question answering, and reasoning tasks.
 
 🔹 4. Memory
 
 Memory helps retain context across multiple interactions.
 
+```
 from langchain.memory import ConversationBufferMemory
 
 memory = ConversationBufferMemory()
 memory.save_context({"input": "Hi"}, {"output": "Hello"})
 print(memory.load_memory_variables({}))
 
+```
 Memory enables conversational AI systems like chatbots to maintain continuity.
 
 🔹 5. Agents
 
 Agents introduce decision-making capability into AI systems.
 
+```
 from langchain.agents import initialize_agent, Tool
 
 tools = [
@@ -97,17 +107,20 @@ tools = [
 agent = initialize_agent(tools, llm)
 agent.run("Search latest AI trends")
 
+```
 Agents dynamically decide which tool to use based on the user query, making them powerful for real-world applications.
 
 🔹 6. Document Loaders & Vector Stores
 
 These components are used for Retrieval-Augmented Generation (RAG) systems.
 
+```
 from langchain.document_loaders import TextLoader
 
 loader = TextLoader("file.txt")
 docs = loader.load()
 
+```
 Vector stores help in searching relevant information efficiently.
 
 Architecture of LangChain
@@ -162,7 +175,8 @@ API cost
 When NOT to Use LangChain
 Simple one-step tasks
 Basic scripts without workflow requirements
-Conclusion
+
+## Conclusion
 
 LangChain provides a structured approach to building intelligent AI systems. It transforms LLM usage into modular pipelines, enabling real-world applications such as chatbots, assistants, and document analysis systems.
 
